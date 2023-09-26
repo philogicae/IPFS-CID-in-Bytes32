@@ -1,0 +1,21 @@
+{
+  "name": "ipfs-cid-in-bytes32",
+  "author": "@philogicae",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Convenient minimal library to convert IPFS CIDs from/to Bytes32 using pure Solidity",
+  "dependencies": {
+    "base58-solidity": "^1.0.2"
+  },
+  "keywords": [
+    "bytes32",
+    "IPFS",
+    "CID",
+    "hash",
+    "base58",
+    "solidity",
+    "EVM",
+    "ethereum",
+    "blockchain"
+  ]
+}
