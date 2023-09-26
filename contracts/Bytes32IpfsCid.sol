@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
-import "base58-solidity/contracts/Base58.sol";
+pragma solidity ^0.8.0;
+import "./Base58.sol";
 
 /**
  * @title bytes32IpfsCid
