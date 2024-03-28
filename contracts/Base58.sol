@@ -16,7 +16,7 @@ library Base58 {
      * @param data_ raw data, passed in as bytes.
      * @return base58 encoded data_, returned as bytes.
      */
-    function encode(bytes memory data_) public pure returns (bytes memory) {
+    function encode(bytes memory data_) internal pure returns (bytes memory) {
         unchecked {
             uint256 size = data_.length;
             uint256 zeroCount;
@@ -54,7 +54,7 @@ library Base58 {
      * @param data_ data encoded with base58, passed in as bytes.
      * @return raw data, returned as bytes.
      */
-    function decode(bytes memory data_) public pure returns (bytes memory) {
+    function decode(bytes memory data_) internal pure returns (bytes memory) {
         unchecked {
             uint256 zero = 49;
             uint256 b58sz = data_.length;
@@ -110,7 +110,7 @@ library Base58 {
      */
     function encodeToString(
         bytes memory data_
-    ) public pure returns (string memory) {
+    ) internal pure returns (string memory) {
         return string(encode(data_));
     }
 
@@ -121,7 +121,7 @@ library Base58 {
      */
     function encodeFromString(
         string memory data_
-    ) public pure returns (bytes memory) {
+    ) internal pure returns (bytes memory) {
         return encode(bytes(data_));
     }
 
@@ -132,7 +132,7 @@ library Base58 {
      */
     function decodeFromString(
         string memory data_
-    ) public pure returns (bytes memory) {
+    ) internal pure returns (bytes memory) {
         return decode(bytes(data_));
     }
 
@@ -147,7 +147,7 @@ library Base58 {
         bytes memory data_,
         uint256 start_,
         uint256 end_
-    ) public pure returns (bytes memory) {
+    ) internal pure returns (bytes memory) {
         unchecked {
             bytes memory ret = new bytes(end_ - start_);
             for (uint256 i = 0; i < end_ - start_; i++) {
@@ -166,7 +166,7 @@ library Base58 {
     function indexOf(
         bytes memory data_,
         bytes1 char_
-    ) public pure returns (uint256, bool) {
+    ) internal pure returns (uint256, bool) {
         unchecked {
             for (uint256 i = 0; i < data_.length; i++) {
                 if (data_[i] == char_) {

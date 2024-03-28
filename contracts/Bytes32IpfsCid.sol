@@ -12,14 +12,14 @@ import "./Base58.sol";
  * Meant to be used ONLY in view/pure functions.
  */
 library Bytes32IpfsCid {
-    function encode(string memory cid) public pure returns (bytes32 shorten) {
+    function encode(string memory cid) internal pure returns (bytes32 shorten) {
         bytes memory result = Base58.decode(bytes(cid));
         assembly {
             shorten := mload(add(result, 34))
         }
     }
 
-    function decode(bytes32 data) public pure returns (string memory) {
+    function decode(bytes32 data) internal pure returns (string memory) {
         return string(Base58.encode(abi.encodePacked(bytes2(0x1220), data)));
     }
 }
